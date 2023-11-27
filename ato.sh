@@ -104,9 +104,7 @@ else
     echo "You have choosen to Install Desktop Yourself"
 fi
 
-echo "----------"
 echo "Reboot now"
-echo "----------"
 
 REALEND
 
