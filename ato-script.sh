@@ -35,19 +35,10 @@ mount -t ext4 "${ROOT}" /mnt
 mkdir /mnt/boot
 mount -t vfat "${EFI}" /mnt/boot/
 
-echo "--------------------------------------"
-echo "-- INSTALLING Arch Linux BASE on Main Drive       --"
-echo "--------------------------------------"
-pacstrap /mnt base base-devel --noconfirm --needed
-
-# kernel
-pacstrap /mnt linux linux-firmware --noconfirm --needed
-
-echo "------------------"
-echo "Setup Dependencies"
-echo "------------------"
-
-pacstrap /mnt networkmanager nano git --noconfirm --needed
+echo "------------------------"
+echo "INSTALLING Arch packages"
+echo "------------------------"
+pacstrap /mnt base linux linux-firmware base-devel networkmanager nano git vim --noconfirm --needed
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -78,7 +69,7 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
-ln -sf /usr/share/zoneinfo/Asia/Kathmandu /etc/localtime
+ln -sf /usr/share/zoneinfo/Australia/Adelaide /etc/localtime
 hwclock --systohc
 
 echo "Arch-Btw" > /etc/hostname
