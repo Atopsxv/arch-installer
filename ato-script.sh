@@ -19,7 +19,7 @@ echo "choose Your DE"
 echo "1. GNOME"
 echo "2. KDE"
 echo "3. XFCE"
-echo "4. Just TTY"
+echo "4. just terminal knwon as the tty"
 read DESKTOP
 
 # make filesystems
