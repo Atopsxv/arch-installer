@@ -94,7 +94,7 @@ then
     systemctl enable gdm
 elif [[ $DESKTOP == '2' ]]
 then
-    pacman -S plasma sddm kde-applications --noconfirm --needed
+    pacman -S plasma sddm --noconfirm --needed
     systemctl enable sddm
 elif [[ $DESKTOP == '3' ]]
 then
