@@ -9,10 +9,10 @@ read SWAP
 echo "enter Root(/) paritition: (example /dev/sda3)"
 read ROOT 
 
-echo "enter your username"
+echo "enter username"
 read USER 
 
-echo "enter your password"
+echo "enter password"
 read PASSWORD 
 
 echo "choose Your DE"
