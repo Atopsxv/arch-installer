@@ -17,7 +17,6 @@ read PASSWORD
 
 echo "choose Your DE"
 echo "1. jus terminal known as tty TEST"
-echo "4. jus terminal known as tty"
 read DESKTOP
 
 # make filesystems
@@ -69,7 +68,7 @@ systemctl enable NetworkManager
 
 #DE
 else
-    echo "TTY has been chosen no DE"
+    
 fi
 
 REALEND
