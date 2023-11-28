@@ -4,4 +4,7 @@ my very own arch install aka {ato install} was made to install the base packages
 Needed - {base linux linux-firmware networkmanager}  
 Ive added the optional ones {base-devel,git} but how could a arch system not have those.
 
-command for installing the tty curl https://raw.githubusercontent.com/atopsxv/arch-installer/main/ato-tty.sh -o ato-tty.sh
+command for installing the tty
+```
+curl https://raw.githubusercontent.com/atopsxv/arch-installer/main/ato-tty.sh -o ato-tty.sh
+```
