@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+echo ░█████╗░████████╗░█████╗░  ░█████╗░██████╗░░█████╗░██╗░░██╗  ░██████╗░█████╗░██████╗░██╗██████╗░████████╗
+echo ██╔══██╗╚══██╔══╝██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗██║░░██║  ██╔════╝██╔══██╗██╔══██╗██║██╔══██╗╚══██╔══╝
+echo ███████║░░░██║░░░██║░░██║  ███████║██████╔╝██║░░╚═╝███████║  ╚█████╗░██║░░╚═╝██████╔╝██║██████╔╝░░░██║░░░
+echo ██╔══██║░░░██║░░░██║░░██║  ██╔══██║██╔══██╗██║░░██╗██╔══██║  ░╚═══██╗██║░░██╗██╔══██╗██║██╔═══╝░░░░██║░░░
+echo ██║░░██║░░░██║░░░╚█████╔╝  ██║░░██║██║░░██║╚█████╔╝██║░░██║  ██████╔╝╚█████╔╝██║░░██║██║██║░░░░░░░░██║░░░
+echo ╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░  ╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝  ╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░░░░░░░╚═╝░░░
+
 echo "enter EFI paritition: (example /dev/sda1)"
 read EFI
 
@@ -14,9 +21,6 @@ read USER
 
 echo "enter password"
 read PASSWORD 
-
-echo "1. jus terminal known as tty"
-read DESKTOP
 
 # make filesystems
 echo -e "\nCreating Filesystems...\n"
@@ -51,13 +55,6 @@ useradd -m $USER
 usermod -aG wheel,storage,power,audio $USER
 echo $USER:$PASSWORD | chpasswd
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-
-sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" >> /etc/locale.conf
-
-ln -sf /usr/share/zoneinfo/Australia/Adelaide /etc/localtime
-hwclock --systohc
 
 echo "Arch-Btw" > /etc/hostname
 
