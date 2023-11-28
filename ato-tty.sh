@@ -24,7 +24,6 @@ read USER
 echo "enter password"
 read PASSWORD 
 
-# make filesystems
 echo -e "\nCreating Filesystems...\n"
 
 mkfs.vfat -F32 -n "EFISYSTEM" "${EFI}"
@@ -32,14 +31,12 @@ mkswap "${SWAP}"
 swapon "${SWAP}"
 mkfs.ext4 -L "ROOT" "${ROOT}"
 
-# mount target
 mount -t ext4 "${ROOT}" /mnt
 mkdir /mnt/boot
 mount -t vfat "${EFI}" /mnt/boot/
 
 pacstrap /mnt base linux linux-firmware base-devel networkmanager git --noconfirm --needed
 
-# fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
 bootctl install --path /mnt/boot
@@ -50,7 +47,6 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=${ROOT} rw
 EOF
-
 
 cat <<REALEND > /mnt/next.sh
 useradd -m $USER
