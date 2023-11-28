@@ -15,8 +15,7 @@ read USER
 echo "enter password"
 read PASSWORD 
 
-echo "choose Your DE"
-echo "1. jus terminal known as tty TEST"
+echo "1. jus terminal known as tty"
 read DESKTOP
 
 # make filesystems
@@ -65,11 +64,6 @@ echo "Arch-Btw" > /etc/hostname
 pacman -S xorg pulseaudio --noconfirm --needed
 
 systemctl enable NetworkManager
-
-#DE
-else
-    
-fi
 
 REALEND
 
