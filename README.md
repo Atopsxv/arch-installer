@@ -5,6 +5,11 @@ My very own arch install aka {ato install} was made to install the base packages
 Needed - {base linux linux-firmware networkmanager}  
 Ive added the optional ones {base-devel,git} but how could an arch system not have those.
 
+
+(ALL STILL IN PROGRESS)
+
+
+
 Command for KDE install
 ```
 curl https://raw.githubusercontent.com/atopsxv/arch-installer/main/ato-kde.sh -o ato-kde.sh
