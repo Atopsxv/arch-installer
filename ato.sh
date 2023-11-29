@@ -35,17 +35,11 @@ mount -t ext4 "${ROOT}" /mnt
 mkdir /mnt/boot
 mount -t vfat "${EFI}" /mnt/boot/
 
-echo "------------------------"
-echo "INSTALLING Arch packages"
-echo "------------------------"
 pacstrap /mnt base linux linux-firmware base-devel networkmanager nano git vim --noconfirm --needed
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "---------------------"
-echo "Installing Bootloader"
-echo "---------------------"
 bootctl install --path /mnt/boot
 echo "default arch.conf" >> /mnt/boot/loader/loader.conf
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
@@ -62,26 +56,13 @@ usermod -aG wheel,storage,power,audio $USER
 echo $USER:$PASSWORD | chpasswd
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
-echo "-----------------------------------"
-echo "Setup Language to US and set locale"
-echo "-----------------------------------"
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
-ln -sf /usr/share/zoneinfo/Australia/Adelaide /etc/localtime
-hwclock --systohc
-
 echo "Arch-Btw" > /etc/hostname
 cat <<EOF > /etc/hosts
-127.0.0.1	localhost
-::1			localhost
-127.0.1.1	arch.localdomain	arch
 EOF
-
-echo "-------------------------"
-echo "Display and Audio Drivers"
-echo "-------------------------"
 
 pacman -S xorg pulseaudio --noconfirm --needed
 
@@ -98,13 +79,11 @@ then
     systemctl enable sddm
 elif [[ $DESKTOP == '3' ]]
 then
-    pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter --noconfirm --needed
+    pacman -S xfce4 lightdm lightdm-gtk-greeter --noconfirm --needed
     systemctl enable lightdm
 else
-    echo "You have choosen to Install Desktop Yourself"
+    echo "TTY has been choosen"
 fi
-
-echo "Reboot now"
 
 REALEND
 
