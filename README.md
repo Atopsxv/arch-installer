@@ -1,6 +1,5 @@
-# MY OWN ARCH INSTALLER
->![IMPORTANT]
->Feedback is highly valuable.
+> [!IMPORTANT]
+Your feedback on improving this repository is highly valuable. Let me know if any issues occur. DM your feedback/issue on discord. [atopsxv]
 
 My very own arch install aka {ato install} was made to install the base packages thats needed in order to function the system and only needed ones.
 Needed - {base linux linux-firmware networkmanager}  
