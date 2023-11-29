@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "enter EFI paritition: (example /dev/sda1 or /dev/nvme0n1p1)"
+echo "enter EFI paritition: (example /dev/sda1)"
 read EFI
 
 echo "enter SWAP paritition: (example /dev/sda2)"
